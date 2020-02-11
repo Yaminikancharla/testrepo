@@ -2,15 +2,15 @@
 pipeline {
     agent any
     stages {
-        stage('will_already_be_locked') {
+        stage('in lock') {
              lock resource: 'shared_resource_lock'
             steps {
                 echo "I am locked before I enter the stage!"
             }
         }
-        stage('will_also_be_locked') {
+        stage('release lock') {
             steps {
-                echo "I am still locked!"
+                echo "I am released from losk"
             }
         }
     }
