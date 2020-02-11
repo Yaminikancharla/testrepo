@@ -1,17 +1,18 @@
+
 pipeline {
   agent { label 'docker' }
   stages {
-    lock('something') {
-      stage('one') {
-        steps {
+    stage('one') {
+      steps {
+        lock('something') {
           echo 'stage one'
         }
       }
-      stage('two') {
-        steps {
-          echo 'stage two'
-        }
-      }
     }
+    stage('two') {
+    steps {
+      echo 'yamini'
+      }
+     } 
   }
 }
