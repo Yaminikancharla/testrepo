@@ -1,18 +1,19 @@
 
 pipeline {
-  agent { label 'docker' }
-  stages {
-    stage('one') {
-      steps {
-        lock('something') {
-          echo 'stage one'
-        }
-      }
+    agent any
+    options {
+        lock resource: 'shared_resource_lock'
     }
-    stage('two') {
-    steps {
-      echo 'yamini'
-      }
-     } 
-  }
+    stages {
+        stage('will_already_be_locked') {
+            steps {
+                echo "I am locked before I enter the stage!"
+            }
+        }
+        stage('will_also_be_locked') {
+            steps {
+                echo "I am still locked!"
+            }
+        }
+    }
 }
