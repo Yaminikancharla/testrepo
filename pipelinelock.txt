@@ -12,7 +12,7 @@ pipeline {
                 sh 'pwd'
             }
             }
-        stage('release_lock') {
+        stage('shared_resource_lock') {
             steps {
                 echo "I am released from losk"
             }
