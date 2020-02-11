@@ -9,6 +9,7 @@ pipeline {
             }
             steps {
                 echo "I am in lock"
+                sh 'pwd'
             }
             }
         stage('release_lock') {
