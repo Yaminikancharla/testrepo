@@ -3,10 +3,11 @@ pipeline {
     agent any
     stages {
         stage('in_lock') {
-             lock resource: 'shared_resource_lock'
+             lock resource: 'shared_resource_lock'{
             steps {
                 echo "I am locked before I enter the stage!"
             }
+        }
         }
         stage('release_lock') {
             steps {
