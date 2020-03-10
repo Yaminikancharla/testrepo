@@ -6,5 +6,13 @@ pipeline {
                 echo 'Hello world!' 
             }
         }
+        stage("Build"){
+             steps {
+                script {
+            //currentBuild.displayName = "$RELEASE_VERSION"
+                    currentBuild.description = "$RELEASE_VERSION"
+                }
+            }
+        }      
     }
 }
